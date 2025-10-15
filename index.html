@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LIVESTYLE</title>
+  <style>
+#intro {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeOut 2s ease 2.5s forwards;
+}
+
+#intro img {
+  width: 500px;
+  height: auto;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1.5s ease forwards;
+  border-radius: 8px;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+    body {
+      margin: 0;
+      font-family: Helvetica, sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    .top-image {
+      text-align: center;
+      padding: 2em 0 1em;
+    }
+
+    .top-image img {
+      max-width: 200px;
+      border-radius: 8px;
+      transition: transform 0.4s ease;
+      cursor: pointer;
+    }
+
+    .top-image img.enlarged {
+      transform: scale(1.5);
+      z-index: 10;
+    }
+
+    .new-releases {
+      position: relative;
+      text-align: center;
+      padding: 2em 1em;
+      background-color: #111;
+      border-top: 1px solid #222;
+      border-bottom: 1px solid #222;
+      background-image: url('f:/TL_LCM/image3.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      overflow: hidden;
+    }
+
+    .new-releases::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.95);
+      z-index: 0;
+    }
+
+    .new-releases > .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .new-releases h3 {
+      font-size: 1.8em;
+      font-weight: bold;
+      margin-bottom: 0.5em;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+
+    .new-releases p {
+      color: #aaa;
+      font-size: 1em;
+      margin-bottom: 2em;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .release-gallery {
+      display: flex;
+      justify-content: center;
+      gap: 2em;
+      flex-wrap: wrap;
+    }
+
+    .release-item {
+      text-align: center;
+      transition: transform 0.3s ease;
+      max-width: 240px;
+    }
+
+    .release-item img {
+      width: 240px;
+      height: 420px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .release-item img:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 30px rgba(255,255,255,0.3);
+    }
+
+    .release-item p {
+      margin-top: 0.8em;
+      font-weight: bold;
+      font-size: 1em;
+      color: #fff;
+    }
+
+    .release-item span {
+      display: block;
+      font-size: 0.9em;
+      color: #888;
+      margin-top: 0.3em;
+    }
+
+    main {
+      padding: 2em;
+    }
+
+    .content-block {
+      display: flex;
+      flex-wrap: wrap;
+      background-color: #111;
+      padding: 2em;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.1);
+    }
+
+    .left-image {
+      flex: 1;
+      min-width: 300px;
+      max-width: 500px;
+      padding: 1em;
+    }
+
+    .left-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    }
+
+    .right-content {
+      flex: 2;
+      min-width: 300px;
+      padding: 1em;
+    }
+
+    .right-content h2 {
+      color: #fff;
+      font-size: 1.6em;
+      margin-bottom: 0.5em;
+    }
+
+    .right-content p {
+      color: #ccc;
+      font-size: 1em;
+      margin-bottom: 1em;
+    }
+
+    .right-content button {
+      padding: 0.5em 1em;
+      background-color: #fff;
+      color: #000;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: bold;
+    }
+
+    .right-content button:hover {
+      background-color: #ccc;
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(255,255,255,0.3);
+    }
+
+    .video-carousel {
+      padding: 2em 1em;
+      background-color: #111;
+      border-top: 1px solid #222;
+      text-align: center;
+    }
+
+    .video-carousel h3 {
+      font-size: 1.6em;
+      font-weight: bold;
+      margin-bottom: 1em;
+      color: #fff;
+    }
+
+    .carousel-container {
+      overflow-x: auto;
+      white-space: nowrap;
+      padding-bottom: 1em;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 2em;
+    }
+
+    .video-item {
+      display: inline-block;
+      width: 240px;
+      flex-shrink: 0;
+      text-align: center;
+    }
+
+    .video-item video {
+      width: 240px;
+      height: 420px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .video-item video:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(255,255,255,0.3);
+    }
+
+    .video-item p {
+      margin-top: 0.5em;
+      font-size: 0.9em;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+<div id="intro">
+  <img src="f:/TL_LCM/image0.jpeg" alt="Logo LIVESTYLE">
+</div>
+
+  <div class="top-image">
+    <img src="f:/TL_LCM/image0.jpeg" alt="Logo LIVESTYLE" onclick="this.classList.toggle('enlarged')">
+  </div>
+
+  <div class="new-releases">
+    <div class="content">
+      <h3>NOUVELLES SORTIES EXCLUSIVES</h3>
+      <p>Culture, musique, mode — les icônes du moment à travers des visuels forts et des histoires marquantes. Voici ce qui fait vibrer la scène.</p>
+      <div class="release-gallery">
+        <div class="release-item">
+          <img src="f:/TL_LCM/image0 (1).jpeg" alt="Pop Smoke">
+          <p>Comment POP SMOKE nous a tragiquement QUITTÉ</p>
+          <span>#popsmoke #americandream</span>
+        </div>
+        <div class="release-item">
+          <img src="f:/TL_LCM/image1.jpeg" alt="Virgil Abloh">
+          <p>Une EXPO sur VIRGIL ABLOH à PARIS ?!</p>
+          <span>#virgil #offwhite #lv</span>
+        </div>
+        <div class="release-item">
+          <img src="f:/TL_LCM/image2.jpeg" alt="Tupac">
+          <p>TUPAC a MARQUÉ toute une GÉNÉRATION avec cet ALBUM</p>
+          <span>#Tupac #2pac #rap #westcoast</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <div class="content-block">
+      <div class="left-image">
+        <img src="f:/TL_LCM/image4.jpeg" alt="Kanye West">
+      </div>
+      <div class="right-content">
+        <h2>"KANYE WEST : SA DESCENTE AUX ENFERS"</h2>
+        <p>Entre scandales médiatiques, ruptures professionnelles et prises de position controversées, Kanye West est passé du sommet de la culture pop à une spirale de chaos. Retour sur un parcours aussi brillant que tourmenté.</p>
+        <button onclick="window.open('https://www.tiktok.com/@livestyle.off?is_from_webapp=1&sender_device=pc', '_blank')">Voir plus</button>
+      </div>
+    </div>
+  </main>
+
+  <div class="video-carousel">
+  <h3>FEED</h3>
+  <div class="carousel-container">
+    <div class="carousel-track">
+      <div class="video-item">
+        <video src="f:\TL_LCM\ssstik.io_@livestyle.off_1760468004671.mp4" autoplay muted loop playsinline></video>
+      </div>
+      <div class="video-item">
+        <video src="f:\TL_LCM\ssstik.io_@livestyle.off_1760468036861.mp4" autoplay muted loop playsinline></video>
+      </div>
+      <div class="video-item">
+        <video src="f:\TL_LCM\ssstik.io_@livestyle.off_1760468058140.mp4" autoplay muted loop playsinline></video>
+      </div>
+      <div class="video-item">
+        <video src="f:\TL_LCM\ssstik.io_@livestyle.off_1760468086621.mp4" autoplay muted loop playsinline></video>
+      </div>
+      <div class="video-item">
+        <video src="f:\TL_LCM\ssstik.io_@livestyle.off_1760468108825.mp4" autoplay muted loop playsinline></video>
+      </div>
+      <div class="video-item">
+        <video src="f:\TL_LCM\ssstik.io_@livestyle.off_1760468134994.mp4" autoplay muted loop playsinline></video>
+      </div>
+      <div class="video-item">
+        <video src="f:\TL_LCM\ssstik.io_@livestyle.off_1760468172809.mp4" autoplay muted loop playsinline></video>
+      </div>
+      <div class="video-item">
+        <video src="f:\TL_LCM\ssstik.io_@livestyle.off_1760468198270.mp4" autoplay muted loop playsinline></video>
+      </div>
+      <div class="video-item">
+        <video src="f:\TL_LCM\ssstik.io_@livestyle.off_1760468307343.mp4" autoplay muted loop playsinline></video>
+      </div>
+      <div class="video-item">
+        <video src="f:\TL_LCM\ssstik.io_@livestyle.off_1760468343478.mp4" autoplay muted loop playsinline></video>
+      </div>
+      <div class="video-item">
+        <video src="f:\TL_LCM\ssstik.io_@livestyle.off_1760511058704.mp4" autoplay muted loop playsinline></video>
+      </div>
+      <div class="video-item">
+        <video src="f:\TL_LCM\ssstik.io_@livestyle.off_1760511078570.mp4" autoplay muted loop playsinline></video>
+      </div>
+      <div class="video-item">
+        <video src="f:\TL_LCM\ssstik.io_@livestyle.off_1760511103375.mp4" autoplay muted loop playsinline></video>
+      </div>
+      <div class="video-item">
+        <video src="f:\TL_LCM\ssstik.io_@livestyle.off_1760511149899.mp4" autoplay muted loop playsinline></video>
+      </div>
+      <div class="video-item">
+        <video src="f:\TL_LCM\ssstik.io_@livestyle.off_1760511605513.mp4" autoplay muted loop playsinline></video>
+      </div>
+      <div class="video-item">
+        <video src="f:\TL_LCM\ssstik.io_@livestyle.off_1760511711999.mp4" autoplay muted loop playsinline></video>
+      </div>
+      <div class="video-item">
+        <video src="f:\TL_LCM\ssstik.io_@livestyle.off_1760511787508.mp4" autoplay muted loop playsinline></video>
+      </div>
+      <div class="video-item">
+        <video src="f:\TL_LCM\ssstik.io_@livestyle.off_1760511834714.mp4" autoplay muted loop playsinline></video>
+      </div>
+    </div>
+  </div>
+</div>
